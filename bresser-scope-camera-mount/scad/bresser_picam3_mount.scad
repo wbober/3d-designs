@@ -48,6 +48,9 @@ m3_head_d = 6.2;
 m2_pilot  = 1.8;  // M2 self-tapping into camera standoffs
 cam_screw_len = 10; // camera screw length (M2 x 10 from a standard set)
 shim_t    = [0.5, 1, 2];
+ribbon_w      = 16.8; // 15-pin camera ribbon is 16 mm wide
+ribbon_slot_h  = 1.4;  // slot height (ribbon is 0.3 mm thick, 0.6 folded)
+ribbon_off     = 2;    // slot starts this far below the PCB bottom edge
 
 /* [Thumb knob] */
 knob_d      = 14;
@@ -147,8 +150,8 @@ module b_body() {
       cylinder(r=r_chamber, h=z_bw - z_j0);
       for (h=holes) translate([h[0], h[1], z_pcb_back - z_j0]) cylinder(d=standoff_d, h=standoff_h + 1, $fn=32);
     }
-    // cable slot through back wall, under PCB bottom edge
-    translate([-9, pcb_y0 - 4.5, z_bw - 1]) cube([18, 4.5, back_wall + 2]);
+    // ribbon slot through back wall (narrow, to keep stray light out)
+    translate([-ribbon_w/2, pcb_y0 - ribbon_off - ribbon_slot_h, z_bw - 1]) cube([ribbon_w, ribbon_slot_h, back_wall + 2]);
     // thumbscrew hole (teardrop points up when printed) + captive nut slot, open at the tongue end
     translate([0, r_sleeve-1, z_groove]) rotate([-90,0,0]) linear_extrude(12) teardrop2d(m3_clear);
     translate([-m3_nut_af/2, r_b_out + 1, z_j0 - tongue_len - 1])

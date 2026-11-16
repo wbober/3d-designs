@@ -24,6 +24,7 @@ z = 0 at the **front face of the serrated ring** (stop seat); +z toward camera/p
 - Snap-on **Pi bracket/tray** (clip width 24, interference 0.3, gap 120°) goes over Part A below Part B; tongue keys to Part B; stop ribs on outside of fingers keep it from sliding away; tray points **toward the scope**.
 - Standoffs: 45° **corbels** with roots clipped at the bed, blind pilot holes with skin (no supports).
 - Camera Module 3: 25×23.862 mm, holes ±10.5 (Ø2.2), lens 14.4 mm from bottom edge, 4× M2×10 self-tapping. Pi Zero W v1.1: 65×30, M2.5 holes 58×23 → 4× M2.6×6 self-tapping. Cable: Pi Zero 15-to-22-pin, ≥150 mm (route ≈126 mm).
+- Ribbon slot in Part B's back wall: 16.8 × 1.4 mm (`ribbon_w`, `ribbon_slot_h`, `ribbon_off`), narrowed from 18 × 4.5 because stray light entered. Also paint the inside of Part B matt black.
 - Taller camera standoffs shift the lens distance – `eye_relief` accounts for it (check echo output).
 
 ## 5. iPhone version (`bresser_iphone_mount.scad`)
@@ -46,16 +47,19 @@ z = 0 at the **front face of the serrated ring** (stop seat); +z toward camera/p
 4. Friction params (`rib_h`, `b_interf`, `clip_interf`) need print tuning.
 5. Camera choice: Camera Module 3 chosen; Arducam OV5647 5MP AF was considered but not pursued.
 
-## 9. Design history (dead ends)
+## 9. Ideas not built
+- Focus/zoom adjustment (pupil moves when zooming): camera plate floating on 3 spring-loaded M3 screws inside Part B (distance + tilt), or a keyed slide with a threaded nut. Concept renders only; wait for pupil measurements at 20-60x first.
+
+## 10. Design history (dead ends)
 - Clamshell Part A → moved to its own file; snug single piece preferred.
 - Angle serration removed. lens_from_stop 8.5 → 3.5 after measurements.
 - Overhang check was too lenient (missed perpendicular standoff tips) → corbels + layer check.
 - Printed bracket via 3-lens/wide lens rejected for iPhone; telephoto chosen.
 
-## 10. Sources (not copied)
+## 11. Sources (not copied)
 - Camera Module 3: https://datasheets.raspberrypi.com/camera/camera-module-3-standard-mechanical-drawing.pdf
 - Pi Zero W: https://datasheets.raspberrypi.com/rpizero/raspberry-pi-zero-w-mechanical-drawing.pdf
 - iPhone 15 Pro: https://developer.apple.com/download/files/accessories/dimensional-drawings/iphone-15-pro.pdf
 
-## 11. Notes
+## 12. Notes
 Pi .scad files were generated from a Python template (not kept); edit the .scad files directly – Part B and bracket code are duplicated in both Pi files, keep them in sync.
