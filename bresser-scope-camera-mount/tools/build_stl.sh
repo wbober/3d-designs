@@ -7,3 +7,5 @@ P=bresser_picam3_mount; C=bresser_picam3_mount_clamshell; I=bresser_iphone_mount
 r part_a_snug part_a $P; r part_b part_b $P; r knob knob $P; r pi_bracket pi_bracket $P; r shims shims $P
 r clamshell_part_a_upper part_a_upper $C; r clamshell_part_a_lower part_a_lower $C; r clamshell_pi_bracket pi_bracket $C
 r iphone_part_a part_a $I; r iphone_b_ring b_ring $I; r iphone_b_plate b_plate $I; r iphone_test_window test_window $I
+F=bresser_picam3_mount_float
+r float_part_b part_b $F; r float_cam_plate cam_plate $F; r float_wheels wheels $F

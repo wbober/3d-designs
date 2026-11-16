@@ -6,9 +6,11 @@ Parametric, **support-free** 3D-printable mounts that attach a camera to the eye
 |---|---|---|
 | **Pi** | Raspberry Pi Camera Module 3 + Pi Zero W | `scad/bresser_picam3_mount.scad` |
 | **Pi (clamshell Part A)** | same, bolted clamshell instead of snug fit (needs supports) | `scad/bresser_picam3_mount_clamshell.scad` |
+| **Pi, focus plate** | same, camera on a spring-loaded plate with 3 thumbwheels (focus distance + tilt) | `scad/bresser_picam3_mount_float.scad` |
 | **iPhone** | iPhone 15 Pro (Spigen Mag Armor), telephoto, MagSafe ring, portrait | `scad/bresser_iphone_mount.scad` |
 
 ![Pi version](images/pi_mount_v2_views.png)
+![Pi focus-plate version](images/float_views.png)
 ![iPhone version](images/iphone_mount_views.png)
 
 ## Quick start
@@ -27,6 +29,9 @@ Or open a `.scad` in OpenSCAD and use the Customizer; pick a part with the `part
 | `part_b` | back wall down |
 | `knob` | flat side down |
 | `pi_bracket` | clip front face down |
+| `float_part_b` | back wall down |
+| `float_cam_plate` | back face down (standoffs up) |
+| `float_wheels` (3) | flat side down |
 | `iphone_part_a`, `iphone_b_ring`, `iphone_b_plate` | back face down |
 
 `shims.stl`, `iphone_test_window.stl` are fit-test helpers. Clamshell halves need supports for bolt ears.

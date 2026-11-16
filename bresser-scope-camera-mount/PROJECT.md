@@ -47,8 +47,14 @@ z = 0 at the **front face of the serrated ring** (stop seat); +z toward camera/p
 4. Friction params (`rib_h`, `b_interf`, `clip_interf`) need print tuning.
 5. Camera choice: Camera Module 3 chosen; Arducam OV5647 5MP AF was considered but not pursued.
 
-## 9. Ideas not built
-- Focus/zoom adjustment (pupil moves when zooming): camera plate floating on 3 spring-loaded M3 screws inside Part B (distance + tilt), or a keyed slide with a threaded nut. Concept renders only; wait for pupil measurements at 20-60x first.
+## 9. Focus-plate variant (`bresser_picam3_mount_float.scad`) — designed, not printed yet
+- Why: the exit pupil moves when zooming, so a fixed camera distance clips the view at high zoom.
+- Part A, lock knob and Pi bracket identical to the main Pi file. Part B is ~6 mm longer; its camera standoffs are replaced by 3 clearance holes (r=18, at 90/210/330°) with 1 mm spring seats, plus an anti-rotation rib on the chamber wall (`key_angle` 150°).
+- New camera plate (5 mm, `fp_t`) carries the camera on 4 standoffs, has M3 nut traps on its front face, 45° spring-seat cones on its back face, a notch for the rib and a ribbon cut-out.
+- 3 printed thumbwheels (same as the lock knob) glued onto M3 socket heads bear on the back wall's outer face. Turn all 3 = focus distance, turn one = tilt. Springs push the plate toward the scope.
+- Hardware (echoed): 3× M3×18 socket head + 3 M3 nuts (or `fp_fix="tap"` for self-tapping), 3 springs OD 6, ID >3.4, free length ≥9.5 mm, solid ≤3.5 mm. Ribbon needs ~143 mm (150 mm cable).
+- Travel ±2.5 mm (`fp_travel`, `spring_gap`); checked no collisions at both ends. Size travel from the pupil measurements at 20-60x.
+- Alternative not built: keyed slide with a threaded focus nut.
 
 ## 10. Design history (dead ends)
 - Clamshell Part A → moved to its own file; snug single piece preferred.
